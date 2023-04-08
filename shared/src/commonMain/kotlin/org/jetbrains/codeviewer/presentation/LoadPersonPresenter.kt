@@ -16,10 +16,9 @@ class LoadPersonPresenter : KoinComponent {
 
     fun loadPeople(personId: Int) {
         kotlinx.coroutines.GlobalScope.launch {
-            getPersonByIdUseCase(personId).collect { person ->
-                println("people " + person.name)
-                _getPeople.value = person
-            }
+            val result = getPersonByIdUseCase(personId)
+            _getPeople.value = result
+            println("result " + result)
         }
     }
 }

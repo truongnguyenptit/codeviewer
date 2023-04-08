@@ -6,7 +6,7 @@ import org.jetbrains.codeviewer.domain.models.Person
 
 class StarWarsDataSource(private val starWarsService: StarWarsApi) {
 
-    suspend fun getPersonByIdResponse(peopleId: Int): Flow<Person> {
+    suspend fun getPersonByIdResponse(peopleId: Int): Person {
         return starWarsService.getPersonByIdResponse(peopleId)
     }
 }

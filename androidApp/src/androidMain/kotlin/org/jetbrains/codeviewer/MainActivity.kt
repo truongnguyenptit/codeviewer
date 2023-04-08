@@ -5,6 +5,8 @@ import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import org.jetbrains.codeviewer.platform._HomeFolder
 import MainView
+import android.util.Log
+import androidx.compose.runtime.collectAsState
 import org.jetbrains.codeviewer.presentation.LoadPersonPresenter
 import org.koin.android.ext.android.inject
 import java.io.File
@@ -23,9 +25,11 @@ class MainActivity : AppCompatActivity() {
         copyAssets()
         _HomeFolder = filesDir
         loadPersonPresenter.loadPeople(2)
-//        greet()
         setContent {
-            MainView()
+            val state = loadPersonPresenter.getPeople.collectAsState()
+
+            Log.d(MainActivity::class.java.simpleName, state.value.toString())
+            MainView(state.value)
         }
     }
 

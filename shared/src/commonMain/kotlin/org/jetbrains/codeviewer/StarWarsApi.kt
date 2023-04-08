@@ -9,10 +9,10 @@ import org.jetbrains.codeviewer.domain.models.Person
 
 interface StarWarsApi {
     @GET("people/{id}/")
-    suspend fun getPersonByIdResponse(@Path("id") peopleId: Int): Flow<Person>
+    suspend fun getPersonByIdResponse(@Path("id") peopleId: Int): Person
 
     @GET("people/{id}/")
-    fun getPeopleByIdFlowResponse(@Path("id") peopleId: Int, @Query("hello") world: String?): Flow<Person>
+    fun getPeopleByIdFlowResponse(@Path("id") peopleId: Int, @Query("hello") world: String?): Person
 
     @GET("people/{id}/")
     fun getPeopleByIdCallResponse(@Path("id") peopleId: Int): Call<Person>
