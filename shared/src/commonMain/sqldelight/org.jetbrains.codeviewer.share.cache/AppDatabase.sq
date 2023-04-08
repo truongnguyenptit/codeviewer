@@ -1,0 +1,17 @@
+CREATE TABLE Person (
+    name TEXT,
+    height TEXT,
+    mass TEXT,
+    url TEXT
+);
+
+insertPerson:
+INSERT INTO Person(name, height, mass, url)
+VALUES(?, ?, ?, ?);
+
+removeAllPerson:
+DELETE FROM Person;
+
+selectAllPersonsInfo:
+SELECT Person.*
+FROM Person;

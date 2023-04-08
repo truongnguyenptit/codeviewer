@@ -7,18 +7,15 @@ import de.jensklingenberg.ktorfit.converter.builtin.FlowResponseConverter
 import io.github.aakira.napier.DebugAntilog
 import io.github.aakira.napier.Napier
 import org.jetbrains.codeviewer.StarWarsApi
-import org.jetbrains.codeviewer.data.datasources.StarWarsDataSource
-import org.jetbrains.codeviewer.data.datasources.StarWarsRepositoryImpl
+import org.jetbrains.codeviewer.data.source.network.StarWarsNetworkDataSource
+import org.jetbrains.codeviewer.data.source.StarWarsRepositoryImpl
 import org.jetbrains.codeviewer.domain.repositories.StarWarRepository
 import org.jetbrains.codeviewer.domain.usecases.GetPersonByIdUseCase
 import org.jetbrains.codeviewer.presentation.LoadPersonPresenter
 import org.koin.core.module.Module
 import org.koin.dsl.module
 import io.ktor.client.HttpClient
-import io.ktor.client.engine.cio.CIO
-import io.ktor.client.plugins.addDefaultResponseValidation
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
-import io.ktor.client.plugins.defaultRequest
 import io.ktor.client.plugins.logging.LogLevel
 import io.ktor.client.plugins.logging.Logger
 import io.ktor.client.plugins.logging.Logging
@@ -91,7 +88,7 @@ fun commonModule(enableNetworkLogs: Boolean) = module {
 //        }
 //    }
     single<StarWarsApi> { get<Ktorfit>().create() }
-    single { StarWarsDataSource(get()) }
+    single { StarWarsNetworkDataSource(get()) }
     single<StarWarRepository> { StarWarsRepositoryImpl(get()) }
     single { GetPersonByIdUseCase(get()) }
     single { LoadPersonPresenter() }

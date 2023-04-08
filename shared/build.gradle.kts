@@ -9,6 +9,8 @@ plugins {
     id("com.google.devtools.ksp") version "1.8.0-1.0.9"
     id("kotlinx-serialization")
     id("de.jensklingenberg.ktorfit") version "1.0.0"
+
+    id("com.squareup.sqldelight")
 }
 
 version = "1.0-SNAPSHOT"
@@ -16,6 +18,7 @@ version = "1.0-SNAPSHOT"
 val ktorVersion = "2.2.4"
 val ktorfitVersion = "1.0.0"
 val koinVerion = "3.3.3"
+val sqlDelightVersion = "1.5.5"
 
 configure<de.jensklingenberg.ktorfit.gradle.KtorfitGradleConfiguration> {
     version = ktorfitVersion
@@ -78,6 +81,8 @@ kotlin {
                 implementation("com.russhwolf:multiplatform-settings-coroutines:0.8.1")
 
                 api("io.insert-koin:koin-core:$koinVerion")
+
+                implementation("com.squareup.sqldelight:runtime:$sqlDelightVersion")
             }
         }
         val androidMain by getting {
@@ -86,9 +91,14 @@ kotlin {
                 api("androidx.activity:activity-compose:1.6.1")
                 api("androidx.appcompat:appcompat:1.6.1")
                 api("androidx.core:core-ktx:1.9.0")
+
+                implementation("com.squareup.sqldelight:android-driver:$sqlDelightVersion")
             }
         }
         val iosMain by getting {
+            dependencies {
+                implementation("com.squareup.sqldelight:native-driver:$sqlDelightVersion")
+            }
         }
         val iosSimulatorArm64Main by getting {
             dependsOn(iosMain)
@@ -102,7 +112,7 @@ kotlin {
             kotlin.srcDirs("src/jvmMain/kotlin")
             dependencies {
                 implementation(compose.desktop.common)
-
+                implementation("com.squareup.sqldelight:sqlite-driver:1.5.3")
             }
         }
     }
@@ -119,6 +129,12 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
+    }
+}
+
+sqldelight {
+    database("AppDatabase") {
+        packageName = "org.jetbrains.codeviewer.share.cache"
     }
 }
 
