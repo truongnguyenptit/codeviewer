@@ -14,9 +14,12 @@ class LoadPersonPresenter : KoinComponent {
     private val _getPeople = MutableStateFlow<Person?>(null)
     val getPeople = _getPeople.asStateFlow()
 
-    fun loadPeople(personId: Int) {
+    fun loadPeople(forceReload: Boolean, personId: Int) {
         kotlinx.coroutines.GlobalScope.launch {
-            val result = getPersonByIdUseCase(personId)
+            val map = mutableMapOf<String, Any?>()
+            map["forceReload"] = forceReload
+            map["personId"] = personId
+            val result = getPersonByIdUseCase(map)
             _getPeople.value = result
             println("result " + result)
         }

@@ -1,9 +1,8 @@
 package org.jetbrains.codeviewer.domain.usecases
 
 
-abstract class UseCase<in Params, out Type> where Type : Any {
+abstract class UseCase<out Type> where Type : Any {
+    abstract suspend fun run(params: Map<String, Any?>): Type
 
-    abstract suspend fun run(params: Params): Type
-
-    suspend operator fun invoke(params: Params) = run(params)
+    suspend operator fun invoke(params: Map<String, Any?>) = run(params)
 }

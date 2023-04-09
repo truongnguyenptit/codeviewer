@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         copyAssets()
         _HomeFolder = filesDir
-        loadPersonPresenter.loadPeople(2)
+        loadPersonPresenter.loadPeople(true, 3)
         setContent {
             val state = loadPersonPresenter.getPeople.collectAsState()
 

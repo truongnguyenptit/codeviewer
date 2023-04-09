@@ -1,17 +1,16 @@
-package org.jetbrains.codeviewer.data.local
+package org.jetbrains.codeviewer.data.source.local
 
-
-import io.ktor.http.HttpMethod.Companion.Patch
+import org.jetbrains.codeviewer.di.StarWarsDatabaseWrapper
 import org.jetbrains.codeviewer.domain.models.Person
 import org.jetbrains.codeviewer.share.cache.AppDatabase
 
-internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
-    private val database = AppDatabase(databaseDriverFactory.createDriver())
+class StarWarsLocalDataSource (databaseWrapper: StarWarsDatabaseWrapper) {
+    private val database = databaseWrapper.instance
     private val dbQuery = database.appDatabaseQueries
 
     internal fun clearDatabase() {
-        dbQuery.transaction {
-            dbQuery.removeAllPerson()
+        dbQuery?.transaction {
+            dbQuery?.removeAllPerson()
         }
     }
 

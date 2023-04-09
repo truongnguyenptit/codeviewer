@@ -5,5 +5,5 @@ import org.jetbrains.codeviewer.data.network.PeopleDto
 import org.jetbrains.codeviewer.domain.models.Person
 
 interface StarWarRepository {
-    suspend fun getPersonById(peopleId: Int): Person
+    suspend fun getPersonById(forceReload: Boolean, peopleId: Int): Person
 }

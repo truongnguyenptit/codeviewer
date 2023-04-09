@@ -21,6 +21,7 @@ import io.ktor.client.plugins.logging.Logger
 import io.ktor.client.plugins.logging.Logging
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
+import org.jetbrains.codeviewer.data.source.local.StarWarsLocalDataSource
 
 fun commonModule(enableNetworkLogs: Boolean) = module {
     single {
@@ -89,9 +90,10 @@ fun commonModule(enableNetworkLogs: Boolean) = module {
 //    }
     single<StarWarsApi> { get<Ktorfit>().create() }
     single { StarWarsNetworkDataSource(get()) }
-    single<StarWarRepository> { StarWarsRepositoryImpl(get()) }
+    single { StarWarsLocalDataSource(get()) }
+    single<StarWarRepository> { StarWarsRepositoryImpl(get(), get()) }
     single { GetPersonByIdUseCase(get()) }
     single { LoadPersonPresenter() }
 }
 
-expect fun platformModule(): Module
+//expect fun platformModule(): Module

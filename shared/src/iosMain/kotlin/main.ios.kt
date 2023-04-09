@@ -5,7 +5,8 @@
 
 
 import androidx.compose.ui.window.ComposeUIViewController
+import org.jetbrains.codeviewer.domain.models.Person
 import platform.UIKit.UIViewController
 import org.jetbrains.codeviewer.ui.MainView
 
-fun MainViewController() : UIViewController = ComposeUIViewController { MainView() }
+fun MainViewController(person: Person?) : UIViewController = ComposeUIViewController { MainView(person) }
