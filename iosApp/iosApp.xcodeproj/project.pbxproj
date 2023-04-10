@@ -10,6 +10,7 @@
 		0431E96C29E26E060054EEA6 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0431E96B29E26E060054EEA6 /* libsqlite3.tbd */; };
 		0431E97229E2705F0054EEA6 /* Koin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0431E97129E2705F0054EEA6 /* Koin.swift */; };
 		0431E97429E2E2000054EEA6 /* ExtensionFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0431E97329E2E2000054EEA6 /* ExtensionFlow.swift */; };
+		046E5F4929E3C36D0089B1E7 /* SwitchingRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046E5F4829E3C36D0089B1E7 /* SwitchingRootView.swift */; };
 		058557BB273AAA24004C7B11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557BA273AAA24004C7B11 /* Assets.xcassets */; };
 		058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */; };
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
@@ -21,6 +22,7 @@
 		0431E96B29E26E060054EEA6 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		0431E97129E2705F0054EEA6 /* Koin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Koin.swift; sourceTree = "<group>"; };
 		0431E97329E2E2000054EEA6 /* ExtensionFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionFlow.swift; sourceTree = "<group>"; };
+		046E5F4829E3C36D0089B1E7 /* SwitchingRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchingRootView.swift; sourceTree = "<group>"; };
 		058557BA273AAA24004C7B11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2152FB032600AC8F00CF470E /* iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				058557D7273AAEEB004C7B11 /* Preview Content */,
 				0431E97129E2705F0054EEA6 /* Koin.swift */,
 				0431E97329E2E2000054EEA6 /* ExtensionFlow.swift */,
+				046E5F4829E3C36D0089B1E7 /* SwitchingRootView.swift */,
 			);
 			path = iosApp;
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
 				0431E97229E2705F0054EEA6 /* Koin.swift in Sources */,
 				0431E97429E2E2000054EEA6 /* ExtensionFlow.swift in Sources */,
+				046E5F4929E3C36D0089B1E7 /* SwitchingRootView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,7 +8,7 @@ struct ComposeView: UIViewControllerRepresentable {
 //    @StateObject private var loadPersonPresenter = LoadPersonPresenter()
     
     func makeUIViewController(context: Context) -> UIViewController {
-        Main_iosKt.MainViewController(person: Person(name: "Ethan", height: "12", mass: "sf", url: "123"))
+        Main_iosKt.MainViewController(person: Person(name: "Ethan123", height: "12", mass: "sf", url: "123"))
     }
 
     func updateUIViewController(_ uiViewController: UIViewController, context: Context) {}

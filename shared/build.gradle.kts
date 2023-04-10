@@ -91,6 +91,8 @@ kotlin {
 
                 implementation("com.squareup.sqldelight:runtime:$sqlDelightVersion")
                 implementation("com.russhwolf:multiplatform-settings:1.0.0-alpha01")
+
+                implementation(libs.stately.common)
             }
         }
         val androidMain by getting {

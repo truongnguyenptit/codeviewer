@@ -17,12 +17,4 @@ actual fun platformModule() = module {
 //    single { Darwin.create() }
 }
 
-fun initKoinIos(
-    userDefaults: NSUserDefaults,
-    doOnStartup: () -> Unit
-): KoinApplication = initKoin{
-    module {
-        single<Settings> { NSUserDefaultsSettings(userDefaults) }
-        single { doOnStartup }
-    }
-}
+

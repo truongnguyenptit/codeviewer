@@ -1,7 +1,5 @@
 package org.jetbrains.codeviewer.domain.repositories
 
-import kotlinx.coroutines.flow.Flow
-import org.jetbrains.codeviewer.data.network.PeopleDto
 import org.jetbrains.codeviewer.domain.models.Person
 
 interface StarWarRepository {

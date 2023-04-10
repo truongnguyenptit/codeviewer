@@ -21,8 +21,17 @@ pluginManagement {
     }
 }
 
+//dependencyResolutionManagement {
+//    versionCatalogs {
+//        create("libs") {
+//            from(files("../gradle/libs.versions.toml"))
+//        }
+//    }
+//}
+
 rootProject.name = "codeviewer"
 
 include(":androidApp")
 include(":shared")
 include(":desktopApp")
+include(":share-ui")
